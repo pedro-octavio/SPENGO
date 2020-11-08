@@ -5,7 +5,10 @@ SPENGO is a software of control spents.
 ## CONFIGURING THE PROJECT
 1) Install necessary packges:
 > Executing the "Restore NuGet Packges" in Visual Studio, or dotnet restore in root directory
-2) Run the SPENGO.API
+2) Add your connection string in SPENGO.API/appsettings.Development.json
+3) Execute migrations:
+> Executing the "Update-Database" in Visual Studio Package Manager Console, or "ef database update" in command prompt
+4) Run the SPENGO.API
 ## TECNOLOGIES USED
 ### BACKEND
 * Asp .Net Core
@@ -21,5 +24,6 @@ SPENGO is a software of control spents.
 * 0.1.1 - Domain layer now comunic with data layer
 * 0.1.2 - API created
 * 0.1.3 - IOC statement added
+* 0.1.4 - Database Configuration Added
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*

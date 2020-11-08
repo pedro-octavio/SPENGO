@@ -1,11 +1,12 @@
 using Autofac;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SPENGO.API.IOC;
+using SPENGO.Data;
 
 namespace SPENGO.API
 {
@@ -23,6 +24,8 @@ namespace SPENGO.API
             services.AddControllers();
 
             services.AddMvc();
+
+            services.AddDbContext<ApplicationDataContext>(options => options.UseMySql(Configuration["ConnectionStrings:SPENGODB"], migration => migration.MigrationsAssembly("SPENGO.API")));
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
