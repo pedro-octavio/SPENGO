@@ -25,5 +25,6 @@ SPENGO is a software of control spents.
 * 0.1.2 - API created
 * 0.1.3 - IOC statement added
 * 0.1.4 - Database Configuration Added
+* 0.2.4 - WalletsController Created
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*
