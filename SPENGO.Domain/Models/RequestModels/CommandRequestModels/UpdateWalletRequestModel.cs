@@ -5,7 +5,7 @@ using System;
 
 namespace SPENGO.Domain.Models.RequestModels.CommandRequestModels
 {
-    public class UpdateWalletRequestModel : IRequest<ReponseModel<UpdateWalletResponseModel>>
+    public class UpdateWalletRequestModel : IRequest<ResponseModel<UpdateWalletResponseModel>>
     {
         public string Id { get; set; }
         public string Name { get; set; }

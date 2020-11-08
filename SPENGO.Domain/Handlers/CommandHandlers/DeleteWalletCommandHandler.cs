@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SPENGO.Data.Interfaces;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.ResponseModel.CommandResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
@@ -8,29 +9,43 @@ using System.Threading.Tasks;
 
 namespace SPENGO.Domain.Handlers.CommandHandlers
 {
-    public class DeleteWalletCommandHandler : IRequestHandler<DeleteWalletRequestModel, ReponseModel<DeleteWalletResponseModel>>
+    public class DeleteWalletCommandHandler : IRequestHandler<DeleteWalletRequestModel, ResponseModel<DeleteWalletResponseModel>>
     {
-        public async Task<ReponseModel<DeleteWalletResponseModel>> Handle(DeleteWalletRequestModel request, CancellationToken cancellationToken)
+        private readonly IWalletRepository walletRepository;
+
+        public DeleteWalletCommandHandler(IWalletRepository walletRepository)
+        {
+            this.walletRepository = walletRepository;
+        }
+
+        private ResponseModel<DeleteWalletResponseModel> responseModel;
+
+        public async Task<ResponseModel<DeleteWalletResponseModel>> Handle(DeleteWalletRequestModel requestModel, CancellationToken cancellationToken)
         {
             try
             {
-                var responseModel = new ReponseModel<DeleteWalletResponseModel>
+                var walletModel = await walletRepository.GetByIdAsync(requestModel.Id);
+
+                await walletRepository.DeleteAsync(walletModel);
+
+                responseModel = new ResponseModel<DeleteWalletResponseModel>
                 {
-                    ErrorMessage = null,
                     IsValid = true,
-                    Data = new DeleteWalletResponseModel
-                    {
-
-                    }
+                    ErrorMessage = null,
+                    Data = null
                 };
-
-                return responseModel;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                responseModel = new ResponseModel<DeleteWalletResponseModel>
+                {
+                    IsValid = false,
+                    ErrorMessage = ex.Message,
+                    Data = null
+                };
             }
+
+            return responseModel;
         }
     }
 }

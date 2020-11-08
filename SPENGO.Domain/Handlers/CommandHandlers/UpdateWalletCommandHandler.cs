@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SPENGO.Data.Interfaces;
+using SPENGO.Data.Models;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.ResponseModel.CommandResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
@@ -8,29 +11,45 @@ using System.Threading.Tasks;
 
 namespace SPENGO.Domain.Handlers.CommandHandlers
 {
-    public class UpdateWalletCommandHandler : IRequestHandler<UpdateWalletRequestModel, ReponseModel<UpdateWalletResponseModel>>
+    public class UpdateWalletCommandHandler : IRequestHandler<UpdateWalletRequestModel, ResponseModel<UpdateWalletResponseModel>>
     {
-        public async Task<ReponseModel<UpdateWalletResponseModel>> Handle(UpdateWalletRequestModel request, CancellationToken cancellationToken)
+        private readonly IWalletRepository walletRepository;
+        private readonly IMapper mapper;
+
+        public UpdateWalletCommandHandler(IWalletRepository walletRepository, IMapper mapper)
+        {
+            this.walletRepository = walletRepository;
+            this.mapper = mapper;
+        }
+
+        private ResponseModel<UpdateWalletResponseModel> responseModel;
+
+        public async Task<ResponseModel<UpdateWalletResponseModel>> Handle(UpdateWalletRequestModel requestModel, CancellationToken cancellationToken)
         {
             try
             {
-                var responseModel = new ReponseModel<UpdateWalletResponseModel>
+                var walletModel = mapper.Map<WalletModel>(requestModel);
+
+                await walletRepository.UpdateAsync(walletModel);
+
+                responseModel = new ResponseModel<UpdateWalletResponseModel>
                 {
-                    ErrorMessage = null,
                     IsValid = true,
-                    Data = new UpdateWalletResponseModel
-                    {
-
-                    }
+                    ErrorMessage = null,
+                    Data = null
                 };
-
-                return responseModel;
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                responseModel = new ResponseModel<UpdateWalletResponseModel>
+                {
+                    IsValid = false,
+                    ErrorMessage = ex.Message,
+                    Data = null
+                };
             }
+
+            return responseModel;
         }
     }
 }

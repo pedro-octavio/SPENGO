@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
+using SPENGO.Data.Interfaces;
 using SPENGO.Domain.Models.RequestModels.QueryRequestModels;
 using SPENGO.Domain.Models.ResponseModel.QueryResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
@@ -8,32 +10,45 @@ using System.Threading.Tasks;
 
 namespace SPENGO.Domain.Handlers.QueryHandlers
 {
-    public class GetWalletByIdQueryHandler : IRequestHandler<GetWalletByIdRequestModel, ReponseModel<GetWalletByIdResponseModel>>
+    public class GetWalletByIdQueryHandler : IRequestHandler<GetWalletByIdRequestModel, ResponseModel<GetWalletByIdResponseModel>>
     {
-        public async Task<ReponseModel<GetWalletByIdResponseModel>> Handle(GetWalletByIdRequestModel request, CancellationToken cancellationToken)
+        private readonly IWalletRepository walletRepository;
+        private readonly IMapper mapper;
+
+        public GetWalletByIdQueryHandler(IWalletRepository walletRepository, IMapper mapper)
+        {
+            this.walletRepository = walletRepository;
+            this.mapper = mapper;
+        }
+
+        private ResponseModel<GetWalletByIdResponseModel> responseModel;
+
+        public async Task<ResponseModel<GetWalletByIdResponseModel>> Handle(GetWalletByIdRequestModel requestModel, CancellationToken cancellationToken)
         {
             try
             {
-                var responseModel = new ReponseModel<GetWalletByIdResponseModel>
-                {
-                    ErrorMessage = null,
-                    IsValid = true,
-                    Data = new GetWalletByIdResponseModel
-                    {
-                        Id = "ns9q0alzp1",
-                        Name = "January Wallet",
-                        EndDate = DateTime.Now,
-                        StartDate = DateTime.Now
-                    }
-                };
+                var walletModel = await walletRepository.GetByIdAsync(requestModel.Id);
 
-                return responseModel;
+                var getWalletByIdResponseModel = mapper.Map<GetWalletByIdResponseModel>(walletModel);
+
+                responseModel = new ResponseModel<GetWalletByIdResponseModel>
+                {
+                    IsValid = true,
+                    ErrorMessage = null,
+                    Data = getWalletByIdResponseModel
+                };
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                responseModel = new ResponseModel<GetWalletByIdResponseModel>
+                {
+                    IsValid = false,
+                    ErrorMessage = ex.Message,
+                    Data = null
+                };
             }
+
+            return responseModel;
         }
     }
 }

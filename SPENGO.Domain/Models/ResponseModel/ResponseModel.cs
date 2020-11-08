@@ -1,6 +1,6 @@
 ﻿namespace SPENGO.Domain.Models.ResponseModel.Shared
 {
-    public class ReponseModel<T>
+    public class ResponseModel<T>
     {
         public bool IsValid { get; set; }
         public string ErrorMessage { get; set; }

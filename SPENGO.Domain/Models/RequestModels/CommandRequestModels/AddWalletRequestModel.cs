@@ -5,7 +5,7 @@ using System;
 
 namespace SPENGO.Domain.Models.RequestModels.CommandRequestModels
 {
-    public class AddWalletRequestModel : IRequest<ReponseModel<AddWalletResponseModel>>
+    public class AddWalletRequestModel : IRequest<ResponseModel<AddWalletResponseModel>>
     {
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
