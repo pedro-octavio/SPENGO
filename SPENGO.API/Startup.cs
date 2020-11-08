@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using SPENGO.API.IOC;
 using SPENGO.Data;
+using System;
 
 namespace SPENGO.API
 {
@@ -27,7 +29,26 @@ namespace SPENGO.API
 
             services.AddDbContext<ApplicationDataContext>(options => options.UseMySql(Configuration["ConnectionStrings:SPENGODB"], migration => migration.MigrationsAssembly("SPENGO.API")));
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("0.2.1", new OpenApiInfo
+                {
+                    Version = "0.2.1",
+                    Title = "SPENGO API",
+                    Description = "SPENGO is a software of control spents.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Pedro Octávio",
+                        Email = "pedrooctavio.dev@outlook.com",
+                        Url = new Uri("https://github.com/pedro-octavio")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT",
+                        Url = new Uri("https://github.com/pedro-octavio/SPENGO/blob/main/LICENSE")
+                    }
+                });
+            });
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -42,9 +63,12 @@ namespace SPENGO.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
+            app.UseSwagger(s =>
+            {
+                s.SerializeAsV2 = true;
+            });
 
-            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", "SPENGO"));
+            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/0.2.1/swagger.json", "SPENGO"));
 
             app.UseHttpsRedirection();
 
