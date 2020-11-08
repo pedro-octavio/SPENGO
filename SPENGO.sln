@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPENGO.Domain", "SPENGO.Domain\SPENGO.Domain.csproj", "{D62C21E3-C0BF-46AA-BE24-6941491FA73A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPENGO.Domain", "SPENGO.Domain\SPENGO.Domain.csproj", "{D62C21E3-C0BF-46AA-BE24-6941491FA73A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPENGO.Data", "SPENGO.Data\SPENGO.Data.csproj", "{DAC2480D-7E93-455E-B533-350B22C002CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPENGO.Data", "SPENGO.Data\SPENGO.Data.csproj", "{DAC2480D-7E93-455E-B533-350B22C002CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPENGO.API", "SPENGO.API\SPENGO.API.csproj", "{77B8A909-A685-43E6-9841-A60E9BC9E572}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DAC2480D-7E93-455E-B533-350B22C002CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC2480D-7E93-455E-B533-350B22C002CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC2480D-7E93-455E-B533-350B22C002CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B8A909-A685-43E6-9841-A60E9BC9E572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B8A909-A685-43E6-9841-A60E9BC9E572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B8A909-A685-43E6-9841-A60E9BC9E572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B8A909-A685-43E6-9841-A60E9BC9E572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
