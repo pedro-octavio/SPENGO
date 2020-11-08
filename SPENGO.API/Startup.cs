@@ -1,8 +1,11 @@
+using Autofac;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SPENGO.API.IOC;
 
 namespace SPENGO.API
 {
@@ -18,6 +21,13 @@ namespace SPENGO.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddMvc();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new ModuleIOC());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
