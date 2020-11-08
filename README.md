@@ -2,6 +2,7 @@
 SPENGO is a software of control spents.
 ## PREREQUESITES
 * [.Net Core](https://dotnet.microsoft.com/download)
+* [MySql](https://www.mysql.com/)
 ## CONFIGURING THE PROJECT
 1) Install necessary packges:
 > Executing the "Restore NuGet Packges" in Visual Studio, or dotnet restore in root directory
@@ -19,12 +20,14 @@ SPENGO is a software of control spents.
 * Fluent Validator
 * MediatR
 * .Net Core
+* Swagger
 ## VERSIONS
 * 0.1.0 - First Commit
 * 0.1.1 - Domain layer now comunic with data layer
 * 0.1.2 - API created
 * 0.1.3 - IOC statement added
 * 0.1.4 - Database Configuration Added
-* 0.2.4 - WalletsController Created
+* 0.2.0 - WalletsController Created
+* 0.2.1 - Swagger Added
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*

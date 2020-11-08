@@ -26,6 +26,8 @@ namespace SPENGO.API
             services.AddMvc();
 
             services.AddDbContext<ApplicationDataContext>(options => options.UseMySql(Configuration["ConnectionStrings:SPENGODB"], migration => migration.MigrationsAssembly("SPENGO.API")));
+
+            services.AddSwaggerGen();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -39,6 +41,10 @@ namespace SPENGO.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", "SPENGO"));
 
             app.UseHttpsRedirection();
 
