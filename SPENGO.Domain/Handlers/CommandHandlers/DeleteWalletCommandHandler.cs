@@ -26,14 +26,26 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
             {
                 var walletModel = await walletRepository.GetByIdAsync(requestModel.Id);
 
-                await walletRepository.DeleteAsync(walletModel);
-
-                responseModel = new ResponseModel<DeleteWalletResponseModel>
+                if (walletModel != null)
                 {
-                    IsValid = true,
-                    ErrorMessage = null,
-                    Data = null
-                };
+                    await walletRepository.DeleteAsync(walletModel);
+
+                    responseModel = new ResponseModel<DeleteWalletResponseModel>
+                    {
+                        IsValid = true,
+                        ErrorMessage = null,
+                        Data = null
+                    };
+                }
+                else
+                {
+                    responseModel = new ResponseModel<DeleteWalletResponseModel>
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Invalid Wallet Id.",
+                        Data = null
+                    };
+                }
             }
             catch (Exception ex)
             {

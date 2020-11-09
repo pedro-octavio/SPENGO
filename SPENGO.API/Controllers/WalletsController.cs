@@ -29,7 +29,14 @@ namespace SPENGO.API.Controllers
             {
                 var responseModel = await mediator.Send(requestModel);
 
-                return Ok(responseModel);
+                if (responseModel.IsValid)
+                {
+                    return Ok(responseModel);
+                }
+                else
+                {
+                    return BadRequest(responseModel);
+                }
             }
             catch (Exception ex)
             {
@@ -51,7 +58,14 @@ namespace SPENGO.API.Controllers
             {
                 var responseModel = await mediator.Send(requestModel);
 
-                return Ok(responseModel);
+                if (responseModel.IsValid)
+                {
+                    return Ok(responseModel);
+                }
+                else
+                {
+                    return BadRequest(responseModel);
+                }
             }
             catch (Exception ex)
             {
@@ -73,7 +87,14 @@ namespace SPENGO.API.Controllers
             {
                 var responseModel = await mediator.Send(requestModel);
 
-                return Ok(responseModel);
+                if (responseModel.IsValid)
+                {
+                    return Ok(responseModel);
+                }
+                else
+                {
+                    return BadRequest(responseModel);
+                }
             }
             catch (Exception ex)
             {
@@ -95,7 +116,14 @@ namespace SPENGO.API.Controllers
             {
                 var responseModel = await mediator.Send(requestModel);
 
-                return Ok(responseModel);
+                if (responseModel.IsValid)
+                {
+                    return Ok(responseModel);
+                }
+                else
+                {
+                    return BadRequest(responseModel);
+                }
             }
             catch (Exception ex)
             {
@@ -117,7 +145,14 @@ namespace SPENGO.API.Controllers
             {
                 var responseModel = await mediator.Send(requestModel);
 
-                return Ok(responseModel);
+                if (responseModel.IsValid)
+                {
+                    return Ok(responseModel);
+                }
+                else
+                {
+                    return BadRequest(responseModel);
+                }
             }
             catch (Exception ex)
             {

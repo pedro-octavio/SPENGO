@@ -2,6 +2,7 @@
 using MediatR;
 using SPENGO.Data.Interfaces;
 using SPENGO.Data.Models;
+using SPENGO.Domain.Helpers.Interfaces;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.ResponseModel.CommandResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
@@ -15,11 +16,13 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
     {
         private readonly IWalletRepository walletRepository;
         private readonly IMapper mapper;
+        private readonly IGenerateIdHelper generateIdHelper;
 
-        public AddWalletCommandHandler(IWalletRepository walletRepository, IMapper mapper)
+        public AddWalletCommandHandler(IWalletRepository walletRepository, IMapper mapper, IGenerateIdHelper generateIdHelper)
         {
             this.walletRepository = walletRepository;
             this.mapper = mapper;
+            this.generateIdHelper = generateIdHelper;
         }
 
         private ResponseModel<AddWalletResponseModel> responseModel;
@@ -29,6 +32,8 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
             try
             {
                 var walletModel = mapper.Map<WalletModel>(requestModel);
+
+                walletModel.Id = generateIdHelper.Generate();
 
                 var addedId = await walletRepository.AddAsync(walletModel);
 

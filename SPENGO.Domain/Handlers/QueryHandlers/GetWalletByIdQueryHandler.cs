@@ -31,12 +31,24 @@ namespace SPENGO.Domain.Handlers.QueryHandlers
 
                 var getWalletByIdResponseModel = mapper.Map<GetWalletByIdResponseModel>(walletModel);
 
-                responseModel = new ResponseModel<GetWalletByIdResponseModel>
+                if (getWalletByIdResponseModel != null)
                 {
-                    IsValid = true,
-                    ErrorMessage = null,
-                    Data = getWalletByIdResponseModel
-                };
+                    responseModel = new ResponseModel<GetWalletByIdResponseModel>
+                    {
+                        IsValid = true,
+                        ErrorMessage = null,
+                        Data = getWalletByIdResponseModel
+                    };
+                }
+                else
+                {
+                    responseModel = new ResponseModel<GetWalletByIdResponseModel>
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Invalid Wallet Id.",
+                        Data = null
+                    };
+                }
             }
             catch (Exception ex)
             {

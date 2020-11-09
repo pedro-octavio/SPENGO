@@ -38,6 +38,11 @@ namespace SPENGO.Data.Repositories
             {
                 var wallet = await applicationDataContext.Wallets.FindAsync(id);
 
+                if (wallet != null)
+                {
+                    applicationDataContext.Entry(wallet).State = EntityState.Detached;
+                }
+
                 return wallet;
             }
             catch (Exception ex)

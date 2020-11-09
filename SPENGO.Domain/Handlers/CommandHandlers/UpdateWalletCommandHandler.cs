@@ -30,14 +30,28 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
             {
                 var walletModel = mapper.Map<WalletModel>(requestModel);
 
-                await walletRepository.UpdateAsync(walletModel);
+                var walletExist = await walletRepository.GetByIdAsync(walletModel.Id);
 
-                responseModel = new ResponseModel<UpdateWalletResponseModel>
+                if (walletExist != null)
                 {
-                    IsValid = true,
-                    ErrorMessage = null,
-                    Data = null
-                };
+                    await walletRepository.UpdateAsync(walletModel);
+
+                    responseModel = new ResponseModel<UpdateWalletResponseModel>
+                    {
+                        IsValid = true,
+                        ErrorMessage = null,
+                        Data = null
+                    };
+                }
+                else
+                {
+                    responseModel = new ResponseModel<UpdateWalletResponseModel>
+                    {
+                        IsValid = false,
+                        ErrorMessage = "Invalid Wallet Id.",
+                        Data = null
+                    };
+                }
             }
             catch (Exception ex)
             {

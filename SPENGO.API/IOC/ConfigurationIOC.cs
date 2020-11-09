@@ -4,6 +4,8 @@ using FluentValidation;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using SPENGO.Data.Interfaces;
 using SPENGO.Data.Repositories;
+using SPENGO.Domain.Helpers.Interfaces;
+using SPENGO.Domain.Helpers.Services;
 using SPENGO.Domain.Mappers;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.RequestModels.QueryRequestModels;
@@ -27,6 +29,8 @@ namespace SPENGO.API.IOC
             containerBuilder.RegisterType<UpdateWalletRequestModelValidator>().As<IValidator<UpdateWalletRequestModel>>();
 
             containerBuilder.RegisterType<WalletRepository>().As<IWalletRepository>();
+
+            containerBuilder.RegisterType<GenerateIdHelper>().As<IGenerateIdHelper>();
         }
     }
 }
