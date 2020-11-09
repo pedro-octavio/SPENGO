@@ -9,7 +9,7 @@ using SPENGO.Data;
 namespace SPENGO.API.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20201108195324_InitialMigration")]
+    [Migration("20201109015420_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,22 @@ namespace SPENGO.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Wallets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "A01HX730QL",
+                            EndDate = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "January Wallet",
+                            StartDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = "3HA0LXMQ20",
+                            EndDate = new DateTime(2020, 2, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "February Wallet",
+                            StartDate = new DateTime(2020, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 #pragma warning restore 612, 618
         }

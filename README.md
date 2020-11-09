@@ -31,5 +31,6 @@ SPENGO is a software of control spents.
 * 0.2.1 - Swagger Added
 * 0.2.2 - More Swagger Addons
 * 0.3.0 - CRUD Actions of Wallet Updated
+* 0.3.1 - Data Annotations Changed for Fluent Api
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*
