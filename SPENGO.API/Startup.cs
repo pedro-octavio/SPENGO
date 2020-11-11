@@ -32,9 +32,9 @@ namespace SPENGO.API
 
             services.AddSwaggerGen(s =>
             {
-                s.SwaggerDoc("0.3.3", new OpenApiInfo
+                s.SwaggerDoc(Configuration["Version"], new OpenApiInfo
                 {
-                    Version = "0.3.3",
+                    Version = Configuration["Version"],
                     Title = "SPENGO API",
                     Description = "SPENGO is a software of control spents.",
                     Contact = new OpenApiContact
@@ -69,7 +69,7 @@ namespace SPENGO.API
                 s.SerializeAsV2 = true;
             });
 
-            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/0.3.3/swagger.json", "SPENGO"));
+            app.UseSwaggerUI(s => s.SwaggerEndpoint($"/swagger/{Configuration["Version"]}/swagger.json", "SPENGO"));
 
             app.UseHttpsRedirection();
 

@@ -9,8 +9,8 @@ using SPENGO.Data;
 namespace SPENGO.API.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20201109015420_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20201111022354_InitialCommit")]
+    partial class InitialCommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
