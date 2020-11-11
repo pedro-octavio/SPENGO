@@ -3,7 +3,6 @@ using SPENGO.Data.Interfaces;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.ResponseModel.CommandResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,37 +21,25 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
 
         public async Task<ResponseModel<DeleteWalletResponseModel>> Handle(DeleteWalletRequestModel requestModel, CancellationToken cancellationToken)
         {
-            try
+            var walletModel = await walletRepository.GetByIdAsync(requestModel.Id);
+
+            if (walletModel != null)
             {
-                var walletModel = await walletRepository.GetByIdAsync(requestModel.Id);
+                await walletRepository.DeleteAsync(walletModel);
 
-                if (walletModel != null)
+                responseModel = new ResponseModel<DeleteWalletResponseModel>
                 {
-                    await walletRepository.DeleteAsync(walletModel);
-
-                    responseModel = new ResponseModel<DeleteWalletResponseModel>
-                    {
-                        IsValid = true,
-                        ErrorMessage = null,
-                        Data = null
-                    };
-                }
-                else
-                {
-                    responseModel = new ResponseModel<DeleteWalletResponseModel>
-                    {
-                        IsValid = false,
-                        ErrorMessage = "Invalid Wallet Id.",
-                        Data = null
-                    };
-                }
+                    IsValid = true,
+                    ErrorMessage = null,
+                    Data = null
+                };
             }
-            catch (Exception ex)
+            else
             {
                 responseModel = new ResponseModel<DeleteWalletResponseModel>
                 {
                     IsValid = false,
-                    ErrorMessage = ex.Message,
+                    ErrorMessage = "Invalid Wallet Id.",
                     Data = null
                 };
             }

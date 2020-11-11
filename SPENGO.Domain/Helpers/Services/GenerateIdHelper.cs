@@ -7,17 +7,9 @@ namespace SPENGO.Domain.Helpers.Services
     {
         public string Generate()
         {
-            try
-            {
-                var id = Guid.NewGuid().ToString().Replace("-", string.Empty).ToUpper().Substring(0, 10);
+            var id = Guid.NewGuid().ToString().Replace("-", string.Empty).ToUpper().Substring(0, 10);
 
-                return id;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            return id;
         }
     }
 }

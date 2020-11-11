@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SPENGO.API.IOC;
+using SPENGO.API.Middlewares;
 using SPENGO.Data;
 using System;
 
@@ -31,9 +32,9 @@ namespace SPENGO.API
 
             services.AddSwaggerGen(s =>
             {
-                s.SwaggerDoc("0.3.2", new OpenApiInfo
+                s.SwaggerDoc("0.3.3", new OpenApiInfo
                 {
-                    Version = "0.3.2",
+                    Version = "0.3.3",
                     Title = "SPENGO API",
                     Description = "SPENGO is a software of control spents.",
                     Contact = new OpenApiContact
@@ -68,13 +69,15 @@ namespace SPENGO.API
                 s.SerializeAsV2 = true;
             });
 
-            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/0.3.2/swagger.json", "SPENGO"));
+            app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/0.3.3/swagger.json", "SPENGO"));
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

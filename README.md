@@ -33,5 +33,6 @@ SPENGO is a software of control spents.
 * 0.3.0 - CRUD Actions of Wallet Updated
 * 0.3.1 - Data Annotations Changed for Fluent Api
 * 0.3.2 - Get Wallets Between Start and End Date, Implemented
+* 0.3.3 - Exception Handler Middleware Created
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*

@@ -5,7 +5,6 @@ using SPENGO.Data.Models;
 using SPENGO.Domain.Models.RequestModels.CommandRequestModels;
 using SPENGO.Domain.Models.ResponseModel.CommandResponseModels;
 using SPENGO.Domain.Models.ResponseModel.Shared;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,39 +25,27 @@ namespace SPENGO.Domain.Handlers.CommandHandlers
 
         public async Task<ResponseModel<UpdateWalletResponseModel>> Handle(UpdateWalletRequestModel requestModel, CancellationToken cancellationToken)
         {
-            try
+            var walletModel = mapper.Map<WalletModel>(requestModel);
+
+            var walletExist = await walletRepository.GetByIdAsync(walletModel.Id);
+
+            if (walletExist != null)
             {
-                var walletModel = mapper.Map<WalletModel>(requestModel);
+                await walletRepository.UpdateAsync(walletModel);
 
-                var walletExist = await walletRepository.GetByIdAsync(walletModel.Id);
-
-                if (walletExist != null)
+                responseModel = new ResponseModel<UpdateWalletResponseModel>
                 {
-                    await walletRepository.UpdateAsync(walletModel);
-
-                    responseModel = new ResponseModel<UpdateWalletResponseModel>
-                    {
-                        IsValid = true,
-                        ErrorMessage = null,
-                        Data = null
-                    };
-                }
-                else
-                {
-                    responseModel = new ResponseModel<UpdateWalletResponseModel>
-                    {
-                        IsValid = false,
-                        ErrorMessage = "Invalid Wallet Id.",
-                        Data = null
-                    };
-                }
+                    IsValid = true,
+                    ErrorMessage = null,
+                    Data = null
+                };
             }
-            catch (Exception ex)
+            else
             {
                 responseModel = new ResponseModel<UpdateWalletResponseModel>
                 {
                     IsValid = false,
-                    ErrorMessage = ex.Message,
+                    ErrorMessage = "Invalid Wallet Id.",
                     Data = null
                 };
             }

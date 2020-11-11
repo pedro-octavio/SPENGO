@@ -26,28 +26,16 @@ namespace SPENGO.Domain.Handlers.QueryHandlers
 
         public async Task<ResponseModel<IEnumerable<GetAllWalletResponseModel>>> Handle(GetAllWalletRequestModel requestModel, CancellationToken cancellationToken)
         {
-            try
-            {
-                var walletsModel = await walletRepository.GetAllAsync(requestModel.StartDate, requestModel.EndDate);
+            var walletsModel = await walletRepository.GetAllAsync(requestModel.StartDate, requestModel.EndDate);
 
-                var getAllWalletResponseModel = mapper.Map<IEnumerable<GetAllWalletResponseModel>>(walletsModel);
+            var getAllWalletResponseModel = mapper.Map<IEnumerable<GetAllWalletResponseModel>>(walletsModel);
 
-                responseModel = new ResponseModel<IEnumerable<GetAllWalletResponseModel>>
-                {
-                    IsValid = true,
-                    ErrorMessage = null,
-                    Data = getAllWalletResponseModel
-                };
-            }
-            catch (Exception ex)
+            responseModel = new ResponseModel<IEnumerable<GetAllWalletResponseModel>>
             {
-                responseModel = new ResponseModel<IEnumerable<GetAllWalletResponseModel>>
-                {
-                    IsValid = false,
-                    ErrorMessage = ex.Message,
-                    Data = null
-                };
-            }
+                IsValid = true,
+                ErrorMessage = null,
+                Data = getAllWalletResponseModel
+            };
 
             return responseModel;
         }
