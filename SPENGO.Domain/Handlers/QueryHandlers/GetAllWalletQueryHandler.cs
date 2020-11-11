@@ -28,7 +28,7 @@ namespace SPENGO.Domain.Handlers.QueryHandlers
         {
             try
             {
-                var walletsModel = await walletRepository.GetAllAsync();
+                var walletsModel = await walletRepository.GetAllAsync(requestModel.StartDate, requestModel.EndDate);
 
                 var getAllWalletResponseModel = mapper.Map<IEnumerable<GetAllWalletResponseModel>>(walletsModel);
 

@@ -17,11 +17,27 @@ namespace SPENGO.Data.Repositories
             this.applicationDataContext = applicationDataContext;
         }
 
-        public async Task<IEnumerable<WalletModel>> GetAllAsync()
+        public async Task<IEnumerable<WalletModel>> GetAllAsync(DateTime? startDate, DateTime? endDate)
         {
             try
             {
-                var wallets = await applicationDataContext.Wallets.OrderBy(w => w.StartDate).ToListAsync();
+                var wallets = new List<WalletModel>();
+
+                if (startDate != null && endDate != null)
+                {
+                    wallets = await applicationDataContext.Wallets
+                        .Where(w => w.StartDate >= startDate && w.EndDate <= endDate)
+                        .ToListAsync();
+                }
+                else
+                {
+                    wallets = await applicationDataContext.Wallets.ToListAsync();
+                }
+
+                wallets = wallets
+                    .OrderBy(w => w.Name)
+                    .OrderBy(w => w.StartDate)
+                    .ToList();
 
                 return wallets;
             }
