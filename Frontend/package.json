@@ -6,6 +6,7 @@
     "url": "https://github.com/pedro-octavio"
   },
   "description": "SPENGO is a software of control spents.",
+  "license": "MIT",
   "version": "1.1.0",
   "scripts": {
     "ng": "ng",
