@@ -1,15 +1,26 @@
 # SPENGO
 SPENGO is a software of control spents.
 ## PREREQUESITES
-* [.Net Core](https://dotnet.microsoft.com/download)
+### BACKEND
 * [MySql](https://www.mysql.com/)
+* [.Net Core](https://dotnet.microsoft.com/download)
+### FRONTEND
+* [Angular](https://angular.io/)
+* [Node.JS](https://nodejs.org/)
+* [Yarn](https://yarnpkg.com/)
 ## CONFIGURING THE PROJECT
+### BACKEND
 1) Install necessary packges:
-> Executing the "Restore NuGet Packges" in Visual Studio, or dotnet restore in root directory
-2) Add your connection string in SPENGO.API/appsettings.Development.json
+> Executing the "Restore NuGet Packges" in Visual Studio, or dotnet restore in prompt command in project "Backend/"
+2) Add your connection string in *"Backend/SPENGO.API/appsettings.Development.json"*
 3) Execute migrations:
-> Executing the "Update-Database" in Visual Studio Package Manager Console, or "ef database update" in command prompt
-4) Run the SPENGO.API
+> Executing the "Update-Database" in Visual Studio Package Manager Console, or "ef database update" in command prompt in "Backend/SPENGO.API"
+4) Run the *"Backend/SPENGO.API"*
+### FRONTEND
+1) Install necessary packages:
+> Executing the "yarn install" in command prompt in folder "Frontend/"
+2) Run project:
+> Executing the "ng serve" in command prompt in folder "Frontend/"
 ## TECNOLOGIES USED
 ### BACKEND
 * Asp .Net Core
@@ -21,6 +32,13 @@ SPENGO is a software of control spents.
 * MediatR
 * .Net Core
 * Swagger
+### FRONTEND
+* Angular 10
+* Jasmine
+* JavaScript
+* Node.JS
+* Tslint
+* TypeScript
 ## VERSIONS
 * 0.1.0 - First Commit
 * 0.1.1 - Domain layer now comunic with data layer
@@ -36,5 +54,6 @@ SPENGO is a software of control spents.
 * 0.3.3 - Exception Handler Middleware Created
 * 0.3.4 - Migrations and Seed Folders Created
 * 1.0.0 - Backend Folder Created
+* 1.1.0 - Angular Project Created
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*
