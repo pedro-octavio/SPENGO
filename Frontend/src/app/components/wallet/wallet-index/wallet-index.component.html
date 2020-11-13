@@ -1,0 +1,51 @@
+<section>
+
+  <h1 class='text-center'>Wallets</h1>
+
+  <div class='mt-5'>
+
+    <div *ngFor='let wallet of getAllWallet'>
+
+      <div class='card text-center'>
+
+        <div class='card-header'>
+
+          <p class='text-success' *ngIf='wallet.isOpen == true'>
+            Open
+          </p>
+
+          <p class='text-danger' *ngIf='wallet.isOpen == false'>
+            Closed
+          </p>
+
+        </div>
+
+        <div class='card-body'>
+
+          <h5 class='card-title'>{{wallet.name}}</h5>
+
+          <ul class='list-group list-group-flush'>
+
+            <li class='list-group-item'>Month Spents: $ 200</li>
+
+            <li class='list-group-item'>Other Spents: $ 150</li>
+
+            <li class='list-group-item'>Salary: $ 1.000</li>
+
+          </ul>
+
+          <a href='#' class='btn btn-primary'>View</a>
+
+        </div>
+
+        <div class='card-footer text-muted'>Last Update Date: {{wallet.lastUpdateDate}}</div>
+
+      </div>
+
+      <hr>
+
+    </div>
+
+  </div>
+
+</section>

@@ -5,9 +5,17 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component'
 
+import { NavbarComponent } from './components/shared/navbar/navbar.component'
+import { FooterComponent } from './components/shared/footer/footer.component'
+
+import { WalletIndexComponent } from './components/wallet/wallet-index/wallet-index.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WalletIndexComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

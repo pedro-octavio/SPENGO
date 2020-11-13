@@ -55,5 +55,6 @@ SPENGO is a software of control spents.
 * 0.3.4 - Migrations and Seed Folders Created
 * 1.0.0 - Backend Folder Created
 * 1.1.0 - Angular Project Created
+* 1.1.1 - Wallet Index Created
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*
