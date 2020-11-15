@@ -57,5 +57,6 @@ SPENGO is a software of control spents.
 * 1.1.0 - Angular Project Created
 * 1.1.1 - Wallet Index Created
 * 1.2.1 - Wallet Group and Wallet Group Item Created
+* 1.2.2 - Wallet Group Actions Created
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*

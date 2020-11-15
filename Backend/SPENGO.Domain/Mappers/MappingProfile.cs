@@ -10,9 +10,14 @@ namespace SPENGO.Domain.Mappers
         public MappingProfile()
         {
             CreateMap<AddWalletRequestModel, WalletModel>();
+            CreateMap<AddWalletGroupRequestModel, WalletGroupModel>();
+
             CreateMap<UpdateWalletRequestModel, WalletModel>();
+            CreateMap<UpdateWalletGroupRequestModel, WalletGroupModel>();
 
             CreateMap<WalletModel, GetAllWalletResponseModel>();
+            CreateMap<WalletGroupModel, GetAllWalletGroupByWalletIdResponseModel>();
+
             CreateMap<WalletModel, GetWalletByIdResponseModel>();
         }
     }

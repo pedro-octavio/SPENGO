@@ -28,7 +28,13 @@ namespace SPENGO.API.IOC
             containerBuilder.RegisterType<GetWalletByIdRequestModelValidator>().As<IValidator<GetWalletByIdRequestModel>>();
             containerBuilder.RegisterType<UpdateWalletRequestModelValidator>().As<IValidator<UpdateWalletRequestModel>>();
 
+            containerBuilder.RegisterType<AddWalletGroupRequestModelValidator>().As<IValidator<AddWalletGroupRequestModel>>();
+            containerBuilder.RegisterType<DeleteWalletGroupRequestModelValidator>().As<IValidator<DeleteWalletGroupRequestModel>>();
+            containerBuilder.RegisterType<GetAllWalletGroupByWalletIdRequestModelValidator>().As<IValidator<GetAllWalletGroupByWalletIdRequestModel>>();
+            containerBuilder.RegisterType<UpdateWalletGroupRequestModelValidator>().As<IValidator<UpdateWalletGroupRequestModel>>();
+
             containerBuilder.RegisterType<WalletRepository>().As<IWalletRepository>();
+            containerBuilder.RegisterType<WalletGroupRepository>().As<IWalletGroupRepository>();
 
             containerBuilder.RegisterType<GenerateIdHelper>().As<IGenerateIdHelper>();
         }
