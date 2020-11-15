@@ -63,8 +63,8 @@ namespace SPENGO.API.Migrations
                     { "LPQ74GZ910", "Salary", 1, 2000.0, "OX9Q02L1N7" },
                     { "MLA830DGZT", "Rent", 0, 400.0, "MLA930DHZT" },
                     { "4HF8Q01LSZ", "Fast Food", 0, 20.0, "JS910APZLV" },
-                    { "P84MXGA0W3", "Gasoline", 0, 200.0, "KS01PWIZMA" },
-                    { "XUS810PWLR", "Rent", 1, 400.0, "KS01PWIZMA" },
+                    { "P84MXGA0W3", "Gasoline", 0, 200.0, "LPQ83BAZ01" },
+                    { "XUS810PWLR", "Rent", 0, 400.0, "LPQ83BAZ01" },
                     { "PMJG53ST8Z", "Food", 0, 450.0, "LPQ83BAZ01" },
                     { "0PAGC73M1L", "Freelancer", 1, 300.0, "KS01PWIZMA" },
                     { "MPQ02GR7Z9", "Streaming Services", 0, 80.0, "JS910APZLV" }

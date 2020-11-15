@@ -36,15 +36,15 @@ namespace SPENGO.Data.Migrations.Seeds
                 new WalletGroupItemModel
                 {
                     Id = "XUS810PWLR",
-                    WalletGroupId = "KS01PWIZMA",
+                    WalletGroupId = "LPQ83BAZ01",
                     Name = "Rent",
-                    Type = 1,
+                    Type = 0,
                     Value = 400
                 },
                 new WalletGroupItemModel
                 {
                     Id = "P84MXGA0W3",
-                    WalletGroupId = "KS01PWIZMA",
+                    WalletGroupId = "LPQ83BAZ01",
                     Name = "Gasoline",
                     Type = 0,
                     Value = 200

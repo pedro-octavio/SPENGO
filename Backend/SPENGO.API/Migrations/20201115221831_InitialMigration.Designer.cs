@@ -9,7 +9,7 @@ using SPENGO.Data;
 namespace SPENGO.API.Migrations
 {
     [DbContext(typeof(ApplicationDataContext))]
-    [Migration("20201115001016_InitialMigration")]
+    [Migration("20201115221831_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,9 +74,9 @@ namespace SPENGO.API.Migrations
                         {
                             Id = "XUS810PWLR",
                             Name = "Rent",
-                            Type = 1,
+                            Type = 0,
                             Value = 400.0,
-                            WalletGroupId = "KS01PWIZMA"
+                            WalletGroupId = "LPQ83BAZ01"
                         },
                         new
                         {
@@ -84,7 +84,7 @@ namespace SPENGO.API.Migrations
                             Name = "Gasoline",
                             Type = 0,
                             Value = 200.0,
-                            WalletGroupId = "KS01PWIZMA"
+                            WalletGroupId = "LPQ83BAZ01"
                         },
                         new
                         {

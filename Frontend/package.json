@@ -7,7 +7,7 @@
   },
   "description": "SPENGO is a software of control spents.",
   "license": "MIT",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

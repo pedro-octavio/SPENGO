@@ -72,9 +72,9 @@ namespace SPENGO.API.Migrations
                         {
                             Id = "XUS810PWLR",
                             Name = "Rent",
-                            Type = 1,
+                            Type = 0,
                             Value = 400.0,
-                            WalletGroupId = "KS01PWIZMA"
+                            WalletGroupId = "LPQ83BAZ01"
                         },
                         new
                         {
@@ -82,7 +82,7 @@ namespace SPENGO.API.Migrations
                             Name = "Gasoline",
                             Type = 0,
                             Value = 200.0,
-                            WalletGroupId = "KS01PWIZMA"
+                            WalletGroupId = "LPQ83BAZ01"
                         },
                         new
                         {

@@ -4,6 +4,7 @@ using FluentValidation;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using SPENGO.Data.Interfaces;
 using SPENGO.Data.Repositories;
+using SPENGO.Domain.Handlers.CommandHandlers;
 using SPENGO.Domain.Helpers.Interfaces;
 using SPENGO.Domain.Helpers.Services;
 using SPENGO.Domain.Mappers;
@@ -33,8 +34,14 @@ namespace SPENGO.API.IOC
             containerBuilder.RegisterType<GetAllWalletGroupByWalletIdRequestModelValidator>().As<IValidator<GetAllWalletGroupByWalletIdRequestModel>>();
             containerBuilder.RegisterType<UpdateWalletGroupRequestModelValidator>().As<IValidator<UpdateWalletGroupRequestModel>>();
 
+            containerBuilder.RegisterType<AddWalletGroupItemRequestModelValidator>().As<IValidator<AddWalletGroupItemRequestModel>>();
+            containerBuilder.RegisterType<DeleteWalletGroupItemRequestModelValidator>().As<IValidator<DeleteWalletGroupItemRequestModel>>();
+            containerBuilder.RegisterType<GetAllWalletGroupItemByWalletGroupIdRequestModelValidator>().As<IValidator<GetAllWalletGroupItemByWalletGroupIdRequestModel>>();
+            containerBuilder.RegisterType<UpdateWalletGroupItemRequestModelValidator>().As<IValidator<UpdateWalletGroupItemRequestModel>>();
+
             containerBuilder.RegisterType<WalletRepository>().As<IWalletRepository>();
             containerBuilder.RegisterType<WalletGroupRepository>().As<IWalletGroupRepository>();
+            containerBuilder.RegisterType<WalletGroupItemRepository>().As<IWalletGroupItemRepository>();
 
             containerBuilder.RegisterType<GenerateIdHelper>().As<IGenerateIdHelper>();
         }
