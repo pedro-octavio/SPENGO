@@ -5,7 +5,7 @@ namespace SPENGO.Data.Migrations.TableConfigurations
 {
     public static class WalletTable
     {
-        public static void Migration(ModelBuilder modelBuilder)
+        public static void Configure(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WalletModel>()
                .Property(x => x.Id)

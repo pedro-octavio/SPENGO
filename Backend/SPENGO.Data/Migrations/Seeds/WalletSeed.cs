@@ -6,7 +6,7 @@ namespace SPENGO.Data.Migrations.Seeds
 {
     public static class WalletSeed
     {
-        public static void Seed(ModelBuilder modelBuilder)
+        public static void Configure(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WalletModel>()
                .HasData(
