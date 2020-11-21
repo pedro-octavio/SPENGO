@@ -9,6 +9,18 @@
       <label for='name' class='grey-text'>Name</label>
       <input type='text' class='form-control' formControlName='name'>
 
+      <div *ngIf='name.errors'>
+
+        <p *ngIf='name.errors.required'>
+          Name cannot be null.
+        </p>
+
+        <p *ngIf='name.errors.maxlength'>
+          The maximum length of name is 40 caracters.
+        </p>
+
+      </div>
+
     </div>
 
     <div class='form-row mb-4'>

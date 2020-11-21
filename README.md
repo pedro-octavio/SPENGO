@@ -59,5 +59,6 @@ SPENGO is a software of control spents.
 * 1.2.2 - Wallet Group Actions Created
 * 1.2.3 - Wallet Group Item Actions Created
 * 1.2.4 - Add Wallet Modal Created
+* 1.2.5 - Validations Added in AddWalletModal
 ## CONTRIBUITORS
 * [**Pedro Octávio**](https://github.com/pedro-octavio) - *desenvolviment of project*
