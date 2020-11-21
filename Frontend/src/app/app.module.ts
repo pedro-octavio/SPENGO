@@ -1,28 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser'
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser'
+import { ToastrModule } from 'ngx-toastr'
 import { AppRoutingModule } from './app-routing.module'
-
 import { AppComponent } from './app.component'
-
-import { NavbarComponent } from './components/shared/navbar/navbar.component'
-import { FooterComponent } from './components/shared/footer/footer.component'
-
-import { WalletIndexComponent } from './components/wallet/wallet-index/wallet-index.component'
+import { ComponentModule } from './modules/component.module'
+import { MaterialModule } from './modules/material.module'
 
 @NgModule({
   declarations: [
-    AppComponent,
-    WalletIndexComponent,
-    NavbarComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    ComponentModule,
+    FormsModule,
+    HttpClientModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+
+}

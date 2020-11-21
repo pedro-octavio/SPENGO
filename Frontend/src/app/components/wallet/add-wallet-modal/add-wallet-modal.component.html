@@ -1,0 +1,51 @@
+<div>
+
+  <h1 class='text-center'>New Wallet</h1>
+
+  <form class='p-5' [formGroup]='addWalletFormGroup'>
+
+    <div>
+
+      <label for='name' class='grey-text'>Name</label>
+      <input type='text' class='form-control' formControlName='name'>
+
+    </div>
+
+    <div class='form-row mb-4'>
+
+      <div class='col'>
+
+        <label for='startDate' class='grey-text'>Start Date</label>
+        <input type='date' class='form-control' formControlName='startDate'>
+
+      </div>
+
+      <div class='col'>
+
+        <label for='endDate' class='grey-text'>End Date</label>
+        <input type='date' class='form-control' formControlName='endDate'>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class='form-row mb-2'>
+
+    <div class='col'>
+
+      <button type='button' class='btn btn-success w-100' [disabled]='!addWalletFormGroup.valid'
+        (click)='save()'>Save</button>
+
+    </div>
+
+    <div class='col'>
+
+      <button type='button' class='btn btn-danger w-100' (click)='cancel()'>Cancel</button>
+
+    </div>
+
+  </div>
+
+</div>

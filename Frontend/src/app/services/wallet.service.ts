@@ -1,38 +1,23 @@
+import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
-import GetAllWallet from '../models/wallet/GetAllWallet'
+import AddWalletRequestModel from '../models/wallet/RequestModels/AddWalletRequestModel'
+import GetAllWalletRequestModel from '../models/wallet/RequestModels/GetAllWalletRequestModel'
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class WalletService {
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
-  getAllWallet: GetAllWallet[] = [
-    {
-      id: 'MA01PEGXÇA',
-      name: 'February Wallet',
-      lastUpdateDate: '01/02/2020',
-      isOpen: false
-    },
-    {
-      id: 'LA02GE7XAO',
-      name: 'March Wallet',
-      lastUpdateDate: '01/03/2020',
-      isOpen: true
-    },
-    {
-      id: 'MA01PEGXÇA',
-      name: 'Januray Wallet',
-      lastUpdateDate: '01/01/2020',
-      isOpen: true
-    }
-  ]
+  getAll(requestModel: GetAllWalletRequestModel): void {
 
-  getAll() {
-    return this.getAllWallet
+  }
+
+  add(requestModel: AddWalletRequestModel): void {
+
   }
 }
