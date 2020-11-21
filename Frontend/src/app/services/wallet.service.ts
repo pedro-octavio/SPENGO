@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core'
 
 import AddWalletRequestModel from '../models/wallet/RequestModels/AddWalletRequestModel'
 import GetAllWalletRequestModel from '../models/wallet/RequestModels/GetAllWalletRequestModel'
+import UpdateWalletRequestModel from '../models/wallet/RequestModels/UpdateWalletRequestModel'
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class WalletService {
   }
 
   add(requestModel: AddWalletRequestModel): void {
+
+  }
+
+  update(requestModel: UpdateWalletRequestModel): void {
 
   }
 }

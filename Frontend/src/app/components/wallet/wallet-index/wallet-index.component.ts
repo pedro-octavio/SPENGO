@@ -6,7 +6,7 @@ import { WalletService } from 'src/app/services/wallet.service'
 
 import GetAllWalletResponseModel from 'src/app/models/wallet/ResponseModels/GetAllWalletResponseModel'
 
-import { AddWalletModalComponent } from '../add-wallet-modal/add-wallet-modal.component'
+import { AddUpdateWalletModalComponent } from '../add-update-wallet-modal/add-update-wallet-modal.component'
 
 @Component({
   selector: 'app-wallet-index',
@@ -36,7 +36,7 @@ export class WalletIndexComponent implements OnInit {
   }
 
   openAddWalletDialog(): void {
-    this.dialog.open(AddWalletModalComponent)
+    this.dialog.open(AddUpdateWalletModalComponent, { data: { type: 2, id: 'D9103PZMAU' } })
   }
 
   searchWallets(): void {

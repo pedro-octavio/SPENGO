@@ -4,8 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { FooterComponent } from '../components/shared/footer/footer.component'
 import { NavbarComponent } from '../components/shared/navbar/navbar.component'
-import { AddWalletModalComponent } from '../components/wallet/add-wallet-modal/add-wallet-modal.component'
+import { AddUpdateWalletModalComponent } from '../components/wallet/add-update-wallet-modal/add-update-wallet-modal.component'
 import { WalletIndexComponent } from '../components/wallet/wallet-index/wallet-index.component'
+import { EmptyresultComponent } from '../components/shared/emptyresult/empty-result.component'
 
 @NgModule({
     imports: [
@@ -13,16 +14,18 @@ import { WalletIndexComponent } from '../components/wallet/wallet-index/wallet-i
         ReactiveFormsModule
     ],
     declarations: [
-        AddWalletModalComponent,
+        AddUpdateWalletModalComponent,
         FooterComponent,
         NavbarComponent,
-        WalletIndexComponent
+        WalletIndexComponent,
+        EmptyresultComponent
     ],
     exports: [
-        AddWalletModalComponent,
+        AddUpdateWalletModalComponent,
         FooterComponent,
         NavbarComponent,
-        WalletIndexComponent
+        WalletIndexComponent,
+        EmptyresultComponent
     ],
 })
 

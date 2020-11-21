@@ -40,41 +40,52 @@
 
   <div>
 
-    <h1 class='text-center mt-5'>Wallets</h1>
+    <div *ngIf='getAllWalletResponseModel'>
 
-    <div class='mt-5'>
+      <h1 class='text-center mt-5'>Wallets</h1>
 
-      <div *ngFor='let wallet of getAllWalletResponseModel'>
+      <div class='mt-5'>
 
-        <div class='card text-center'>
+        <div *ngFor='let wallet of getAllWalletResponseModel'>
 
-          <div class='card-header'>
+          <div class='card text-center'>
 
-            <p class='text-success' *ngIf='wallet.isActive'>
-              Open
-            </p>
+            <div class='card-header'>
 
-            <p class='text-danger' *ngIf='!wallet.isActive'>
-              Closed
-            </p>
+              <p class='text-success' *ngIf='wallet.isActive'>
+                Open
+              </p>
+
+              <p class='text-danger' *ngIf='!wallet.isActive'>
+                Closed
+              </p>
+
+            </div>
+
+            <div class='card-body'>
+
+              <h5 class='card-title'>{{wallet.name}}</h5>
+
+              <a href='/' class='btn btn-primary mt-3 w-25'>View</a>
+
+            </div>
+
+            <div class='card-footer text-muted'>Start Date: {{wallet.startDate | date}} | End Date:
+              {{wallet.endDate | date}}</div>
 
           </div>
 
-          <div class='card-body'>
-
-            <h5 class='card-title'>{{wallet.name}}</h5>
-
-            <a href='/' class='btn btn-primary mt-3 w-25'>View</a>
-
-          </div>
-
-          <div class='card-footer text-muted'>Start Date: {{wallet.startDate | date}} | End Date: {{wallet.endDate | date}}</div>
+          <hr>
 
         </div>
 
-        <hr>
-
       </div>
+
+    </div>
+
+    <div *ngIf='!getAllWalletResponseModel'>
+
+      <app-empty-result message='Not Wallet Found'></app-empty-result>
 
     </div>
 
