@@ -13,8 +13,8 @@ import { MaterialModule } from './modules/material.module'
     AppComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     ComponentModule,
     FormsModule,
     HttpClientModule,

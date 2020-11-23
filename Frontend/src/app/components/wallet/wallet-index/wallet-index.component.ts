@@ -36,7 +36,7 @@ export class WalletIndexComponent implements OnInit {
   }
 
   openAddWalletDialog(): void {
-    this.dialog.open(AddUpdateWalletModalComponent, { data: { type: 2, id: 'D9103PZMAU' } })
+    this.dialog.open(AddUpdateWalletModalComponent, { data: { type: 1, id: null } })
   }
 
   searchWallets(): void {

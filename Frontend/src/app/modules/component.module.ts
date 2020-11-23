@@ -7,6 +7,7 @@ import { NavbarComponent } from '../components/shared/navbar/navbar.component'
 import { AddUpdateWalletModalComponent } from '../components/wallet/add-update-wallet-modal/add-update-wallet-modal.component'
 import { WalletIndexComponent } from '../components/wallet/wallet-index/wallet-index.component'
 import { EmptyresultComponent } from '../components/shared/emptyresult/empty-result.component'
+import { WalletShowComponent } from '../components/wallet/wallet-show/wallet-show.component'
 
 @NgModule({
     imports: [
@@ -18,14 +19,16 @@ import { EmptyresultComponent } from '../components/shared/emptyresult/empty-res
         FooterComponent,
         NavbarComponent,
         WalletIndexComponent,
-        EmptyresultComponent
+        EmptyresultComponent,
+        WalletShowComponent
     ],
     exports: [
         AddUpdateWalletModalComponent,
         FooterComponent,
         NavbarComponent,
         WalletIndexComponent,
-        EmptyresultComponent
+        EmptyresultComponent,
+        WalletShowComponent
     ],
 })
 
